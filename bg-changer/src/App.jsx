@@ -1,62 +1,88 @@
-import { useState } from "react";
-function App() {
-  const [color, setcolor] = useState("black");
+import React, { useState } from "react";
+
+const App = () => {
+  const [color, setColor] = useState("olive");
   return (
     <div
       className="w-full h-screen  duration-200"
       style={{ backgroundColor: color }}
     >
-      <div className="fixed flex flex-wrap justify-center bottom-12 inset-x-0 px-2">
-        <div className="flex flex-wrap justify-center gap-3 shadow-lg bg-white px-3 py-2 rounded-3xl">
+      <div className="fixed flex flex-wrap rounded-lg py-1 justify-center px-2 bottom-12 insect-x-0">
+        <div className="flex flex-wrap bg-white justify-center gap-3 shadow-lg px-3 py-2 rounded-3xl">
           <button
-            onClick={() => {
-              setcolor("red");
-            }}
-            className="outline-none px-3 py-1 rounded-full text-white shadow-lg"
+            className=" rounded-full px-4 py-1 text-white"
             style={{ backgroundColor: "red" }}
+            onClick={() => setColor("red")}
           >
             Red
           </button>
-
           <button
-            onClick={() => {
-              setcolor("green");
-            }}
-            className="outline-none text-white rounded-full px-2 py-1 shadow-lg"
+            className=" rounded-full px-4 py-1 text-white "
+            style={{ backgroundColor: "blue" }}
+            onClick={() => setColor("blue")}
+          >
+            blue
+          </button>
+          <button
+            className=" rounded-full px-4 py-1 text-white"
             style={{ backgroundColor: "green" }}
+            onClick={() => setColor("green")}
           >
             Green
           </button>
           <button
-            onClick={() => {
-              setcolor("blue");
-            }}
-            className="text-white px-2 py-1 rounded-full shadow-lg"
-            style={{ backgroundColor: "blue" }}
+            className=" rounded-full px-4 py-1"
+            style={{ backgroundColor: "yellow" }}
+            onClick={() => setColor("yellow")}
           >
-            Blue
+            Yellow
           </button>
           <button
-            onClick={() => {
-              setcolor("lightgreen");
-            }}
-            className="text-white rounded-full px-2 py-1 shadow-lg"
-            style={{ backgroundColor: "gray" }}
+            className=" rounded-full px-4 py-1 text-white"
+            style={{ backgroundColor: "black" }}
+            onClick={() => setColor("black")}
           >
-            Gray
+            Black
           </button>
           <button
-            onClick={() => {
-              setcolor("pink");
-            }}
-            className="rounded-full px-2 py-1 shadow-full"
+            className=" rounded-full px-4 py-1"
+            style={{ backgroundColor: "lavender" }}
+            onClick={() => setColor("lavender")}
+          >
+            Lavender
+          </button>
+          <button
+            className=" rounded-full px-4 py-1"
             style={{ backgroundColor: "pink" }}
+            onClick={() => setColor("pink")}
           >
             Pink
+          </button>
+          <button
+            className=" rounded-full px-4 py-1"
+            style={{ backgroundColor: "orange" }}
+            onClick={() => setColor("orange")}
+          >
+            Orange
+          </button>
+          <button
+            className=" rounded-full px-4 py-1 outline-none"
+            style={{ backgroundColor: "white" }}
+            onClick={() => setColor("white")}
+          >
+            White
+          </button>
+          <button
+            className=" rounded-full px-4 py-1 text-white"
+            style={{ backgroundColor: "purple" }}
+            onClick={() => setColor("purple")}
+          >
+            Purple
           </button>
         </div>
       </div>
     </div>
   );
-}
+};
+
 export default App;
