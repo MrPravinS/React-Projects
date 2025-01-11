@@ -1,17 +1,20 @@
 import React from "react";
 
-const FoodCard = () => {
+
+const FoodCard = ({title, price,image,rating}) => {
+
   return (
-    <div className="flex-wrap h-[200px]  m-3 border   w-[150px] hover:border-black hover:shadow-lg transition duration-300">
+   
+    <div className="flex-wrap h-[300px]  m-3 border bg-gray-200   w-[250px] hover:border-black hover:shadow-lg transition duration-300">
       <img
-        className="m-1 w-[140px] h-[100px]"
-        src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/RX_THUMBNAIL/IMAGES/VENDOR/2024/4/9/e73d00ec-d9b5-4c5c-9d7e-76210175ab61_840018.jpg"
-        width={100}
+        className= " justify-center mt-2 ml-2 w-[160px] h-[100px]"
+        src={image}
+        width={150}
         alt="food-img"
       />
-      <p className="flex justify-center">Speacial Thali</p>
-      <p className="flex justify-center">4.5 Star</p>
-      <p className="flex justify-center">20 Min Deliver</p>
+      <p className="flex justify-center">{title}</p>
+      <p className="flex justify-center">Price:{price}</p>
+      <p className="flex justify-center">Rating:{rating}/5</p>
     </div>
   );
 };
