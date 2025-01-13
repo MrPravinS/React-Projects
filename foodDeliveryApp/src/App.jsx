@@ -2,7 +2,6 @@ import Header from "./components/Header";
 import SearchBar from "./components/body/SearchBar";
 import FoodCard from "./components/body/FoodCard";
 import Footer from "./components/Footer";
-import resData from "./components/Utils/resData";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
