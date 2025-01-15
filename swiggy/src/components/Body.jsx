@@ -7,6 +7,8 @@ const Body = () => {
   const [foodCard, setFoodCard] = useState([]);
   const [searchFood, setSearchFood] = useState("");
 
+
+  // if no dependancy arr then useEffect call render everytime
   useEffect(() => {
     fetchData();
   }, []);
@@ -23,7 +25,7 @@ const Body = () => {
       json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
 
-    setFoodCard(feedData)
+    setFoodCard(feedData);
     // setFoodCard((preCards) => [...preCards, ...feedData]); //feed
     console.log(feedData);
   };
