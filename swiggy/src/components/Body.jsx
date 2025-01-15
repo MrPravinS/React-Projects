@@ -5,7 +5,7 @@ import Loading from "./Loading";
 
 const Body = () => {
   const [foodCard, setFoodCard] = useState([]);
-  const [searchFood, setSearchFood] = useState("")
+  const [searchFood, setSearchFood] = useState("");
 
   useEffect(() => {
     fetchData();
@@ -23,31 +23,47 @@ const Body = () => {
       json?.data?.cards?.[4]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants || [];
 
-    setFoodCard((preCards) => [...preCards, ...feedData]);  //feed
+    setFoodCard(feedData)
+    // setFoodCard((preCards) => [...preCards, ...feedData]); //feed
+    console.log(feedData);
   };
   return (
     <div className="m-2 ">
       <div className="flex justify-center  bg-gray-300 p-3 rounded-md ">
         <input
           value={searchFood}
-          onChange={(e)=>{
-            setSearchFood(e.target.value)
+          onChange={(e) => {
+            setSearchFood(e.target.value);
           }}
           type="text"
           placeholder="Enter Food"
           className="pl-2 text-black rounded-lg py-1"
         />
         <button
-         onClick={()=>{
-          const filters = foodCard.filter((item)=>
-            item.info.name.toLowerCase().includes(searchFood)
-          )
-          setFoodCard(filters)
-         }}
-         className="ml-2 p-1 bg-blue-600 px-2 py-1 rounded-lg text-white hover:bg-blue-700 cursor-pointer">
+          onClick={() => {
+            const filters = foodCard.filter((item) =>
+              item.info.name.toLowerCase().includes(searchFood.toLowerCase())
+            );
+            setFoodCard(filters);
+          }}
+          className="ml-2 p-1 bg-blue-600 px-2 py-1 rounded-lg text-white hover:bg-blue-700 cursor-pointer"
+        >
           Search
         </button>
       </div>
+
+      <button
+        onClick={() => {
+          const filters = foodCard.filter((item) => item.info.avgRating > 4.3);
+          console.log(filters);
+
+          setFoodCard(filters);
+          // console.log(filter);
+        }}
+        className="m-2 bg-gray-300 px-2 py-1 rounded-lg cursor-pointer"
+      >
+        Top Rated
+      </button>
       <div className="flex flex-wrap">
         {foodCard.length > 0 ? (
           foodCard.map((restaurant) => (
@@ -70,7 +86,7 @@ const Body = () => {
             </div>
           ))
         ) : (
-          <Loading/>
+          <Loading />
         )}
       </div>
     </div>
