@@ -22,25 +22,24 @@ const RestaurantMenu = () => {
     setResInfo(json.data);
   };
 
-  if (resInfo == null) return <Loading />;
+  if (resInfo === null) return <Loading />;
 
-  const itemCard =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
-      ?.carousel[0]?.dish?.info?.name;
-  console.log(itemCard);
+  // destructure restrarent menu
+  const {name,cuisines,costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info
+
+  const itemCards =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
+  console.log(itemCards);
 
   return (
     <div>
-      <h1>{resInfo?.cards[2]?.card?.card?.info?.name}</h1>
-      <p>
-        {resInfo?.cards[2]?.card?.card?.info?.cuisines.join(", ")} -{" "}
-        {resInfo?.cards[2]?.card?.card?.info?.costForTwoMessage}
-      </p>
-      <h2>Menu</h2>
+      <h1>{name}</h1>
+      <h3>{cuisines.join(", ")}-{costForTwoMessage}</h3>
+      
       <ul>
         <Link>
           <li>
-            {
+            {/* {
               resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
                 .card.card.carousel[0].dish.info.name
             }{" "}
@@ -48,14 +47,14 @@ const RestaurantMenu = () => {
             {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
               .card.card.carousel[0].dish.info.price / 100 ||
               resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                .card.card.carousel[0].dish.info.defaultPrice}
+                .card.card.carousel[0].dish.info.defaultPrice} */}
           </li>
         </Link>
         <li>
-          {
+          {/* {
             resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
               .card.carousel[1].dish.info.name
-          }
+          } */}
         </li>
         {/* <li>{itemCard?.carousel[0]?.dish?.info.name}</li>
             {/* <li>Diet Coke</li>  */}
