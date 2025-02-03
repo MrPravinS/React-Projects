@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Loading from "./Loading";
 import { Link, useParams } from "react-router-dom";
+import { MENU_API } from "../utils/constant";
 
 const RestaurantMenu = () => {
   const [resInfo, setResInfo] = useState(null);
@@ -13,7 +14,7 @@ const RestaurantMenu = () => {
 
   const fetchMenu = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1458004&lng=79.0881546&restaurantId=56370&catalog_qa=undefined&submitAction=ENTER"
+      MENU_API+ restId 
     );
 
     const json = await data.json();
@@ -25,42 +26,28 @@ const RestaurantMenu = () => {
   if (resInfo === null) return <Loading />;
 
   // destructure restrarent menu
-  const {name,cuisines,costForTwoMessage} = resInfo?.cards[2]?.card?.card?.info
+  const { name, cuisines, costForTwoMessage } =
+    resInfo?.cards[2]?.card?.card?.info;
 
   const itemCards =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
-  console.log(itemCards);
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+      ?.itemCards;
+  // console.log(itemCards);
 
   return (
     <div>
       <h1>{name}</h1>
-      <h3>{cuisines.join(", ")}-{costForTwoMessage}</h3>
-      
+      <h1>
+        {cuisines.join(", ")}-{costForTwoMessage}
+      </h1>
+
       <ul>
-        <Link>
-          <li>
-            {/* {
-              resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                .card.card.carousel[0].dish.info.name
-            }{" "}
-            -{" "}
-            {resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-              .card.card.carousel[0].dish.info.price / 100 ||
-              resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]
-                .card.card.carousel[0].dish.info.defaultPrice} */}
+        {itemCards.map((item) => (
+          <li key={item.card.info.id}>
+            {item.card.info.name}-{" Rs."}
+            {(item.card.info.finalPrice)/100 || (item.card.info.defaultPrice)/100}
           </li>
-        </Link>
-        <li>
-          {/* {
-            resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1].card
-              .card.carousel[1].dish.info.name
-          } */}
-        </li>
-        {/* <li>{itemCard?.carousel[0]?.dish?.info.name}</li>
-            {/* <li>Diet Coke</li>  */}
-        {/* {itemCard.map((item)=>{
-            <li>{item.name}</li>
-           })} */}
+        ))}
       </ul>
     </div>
   );
