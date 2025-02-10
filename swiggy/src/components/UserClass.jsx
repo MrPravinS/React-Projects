@@ -3,28 +3,37 @@ import React from "react";
 class UserClass extends React.Component {
   constructor(props) {
     super(props);
+    // console.log( "Constructor Call");
+
     this.state = {
-      count: 0,
-      count2: 3,
+      userInfo: {
+        name: "Dummy",
+        location: "Default",
+        avatar_url: "avatardummy.com",
+      },
     };
   }
 
+  async componentDidMount() {
+    // console.log( "Child components Did mount Call");
+    // make a api call
+    const data = await fetch("https://api.github.com/users/MrPravinS");
+    const json = await data.json();
+    console.log(json);
+
+    this.setState({
+      userInfo: json,
+    });
+  }
+
   render() {
-    const { name, location } = this.props;
-    const { count } = this.state;
+    const { name, location, avatar_url } = this.state.userInfo;
+    // const { count } = this.state;
+    // console.log(name, "Render Call");
+
     return (
       <div>
-        <h1 className="text-md font-medium cursor-pointer">Count: {count}</h1>
-        <button
-          onClick={() => {
-            this.setState({
-              // user for update the state
-              count: this.state.count + 1,
-            });
-          }}
-        >
-          Increment
-        </button>
+        <img src={avatar_url} alt="" />
         <h1>Name: {name}</h1>
         <h2>Location: {location}</h2>
       </div>
@@ -33,4 +42,3 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
-
