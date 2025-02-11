@@ -4,7 +4,16 @@ import { useEffect, useState } from "react"
     const [count,setCount] = useState(0)
 
     useEffect(()=>{
+      const timer = setInterval(()=>{
+    console.log("Hey React Master");
+    
+      },1000)
 
+      return () => {
+        clearInterval(timer)
+        console.log("useEffect Unmount");
+        
+      };
     },[])
 
     const fetchData = async() =>{

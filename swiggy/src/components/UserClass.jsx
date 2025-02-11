@@ -14,18 +14,22 @@ class UserClass extends React.Component {
     };
   }
 
-  async componentDidMount() {
-    // console.log( "Child components Did mount Call");
-    // make a api call
-    const data = await fetch("https://api.github.com/users/MrPravinS");
-    const json = await data.json();
-    console.log(json);
-
-    this.setState({
-      userInfo: json,
-    });
+   componentDidMount() {  
+    this.timer = setInterval(()=>{
+     console.log("Hey React Master");
+     
+    },1000)
   }
 
+  componentDidUpdate(prevProps,prevState) {
+    if(this.state.count !== prevState.count){
+       // code
+    }
+  }
+
+  componentWillUnmount(){
+     clearInterval(this.timer) // clear the task on the dom
+  }
   render() {
     const { name, location, avatar_url } = this.state.userInfo;
     // const { count } = this.state;
@@ -33,9 +37,9 @@ class UserClass extends React.Component {
 
     return (
       <div>
-        <img src={avatar_url} alt="" />
-        <h1>Name: {name}</h1>
-        <h2>Location: {location}</h2>
+        <img className="h-36 w-36 rounded-full" src={avatar_url} alt="" />
+        <h1 className="text-xl font-bold items-center">Name: {name}</h1>
+        <h2 className="font-medium">Location: {location}</h2>
       </div>
     );
   }

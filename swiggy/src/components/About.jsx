@@ -19,7 +19,8 @@ class About extends React.Component {
       <div>
         <h1>This is About Page</h1>
         {/* <User/> */}
-        <UserClass/>
+        {/* <UserClass/> */}
+         <User/>
       </div>
     );
   }
