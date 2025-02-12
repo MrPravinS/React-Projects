@@ -1,27 +1,13 @@
-import { useEffect, useState } from "react";
 import Loading from "./Loading";
-import { Link, useParams } from "react-router-dom";
-import { MENU_API } from "../utils/constant";
+import {useParams } from "react-router-dom";
+import useRestaurantMenu from "../utils/useRestaurantMenu";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  // const [resInfo, setResInfo] = useState(null);
 
   const { restId } = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    const data = await fetch(
-      MENU_API+ restId 
-    );
-
-    const json = await data.json();
-    console.log(json);
-
-    setResInfo(json.data);
-  };
+  const resInfo = useRestaurantMenu(restId);
 
   if (resInfo === null) return <Loading />;
 
