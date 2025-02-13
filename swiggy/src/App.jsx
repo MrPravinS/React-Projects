@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom'
 // code splitting
 // dynamic bundling
 // lazy loading
-
+// dynamix import
 function App() {
 
   return (
