@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "./Loading";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
   const [foodCard, setFoodCard] = useState([]);
@@ -21,8 +22,12 @@ const Body = () => {
         ?.restaurants || [];
 
     setFoodCard(feedData);
-    console.log(feedData);
+    // console.log(feedData);
   };
+
+const onlineStatus = useOnlineStatus();
+
+if(onlineStatus === false)return <h1>Looks like youre Offline!! please check your internet connection</h1>
 
   return (
     <div className="m-2">

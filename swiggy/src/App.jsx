@@ -3,6 +3,12 @@ import Body from './components/Body'
 import Footer from "./components/Footer"
 import { Outlet } from 'react-router-dom'
 
+
+// chunking
+// code splitting
+// dynamic bundling
+// lazy loading
+
 function App() {
 
   return (
