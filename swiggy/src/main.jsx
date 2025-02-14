@@ -10,7 +10,7 @@ import Body from "./components/Body.jsx";
 import RestaurantMenu from "./components/RestaurantMenu.jsx";
 // import Grocery from './components/Grodcery.jsx'
 
-const Grocery = lazy(() => import("./components/Grodcery.jsx"));
+const Grocery = lazy(() => import("./components/Grocery.jsx"));
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -20,7 +20,6 @@ const appRouter = createBrowserRouter([
         path: "/",
         element: <Body />,
       },
-
       {
         path: "/about",
         element: <About />,
