@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { useState } from "react";
 
 const Header = () => {
 // const [onlinStatus,setOnlineStatus] = useState()
@@ -20,7 +19,7 @@ const onlineStatus = useOnlineStatus()
       <div className="flex items-center">
         <ul>
           <li>
-            Online Status:{onlineStatus ? "Online":"Offline"}
+            Online Status:{onlineStatus ? "✅":"🔴"}
           </li>
         </ul>
         <ul className="flex m-1 p-4">
