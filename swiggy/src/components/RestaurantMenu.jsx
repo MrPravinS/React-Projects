@@ -12,23 +12,24 @@ const RestaurantMenu = () => {
   if (resInfo === null) return <Loading />;
 
   // destructure restrarent menu
-  const { name, cuisines, costForTwoMessage } =
-    resInfo?.cards[2]?.card?.card?.info;
+  // const { name, cuisines, costForTwoMessage } =
+  //    resInfo?.cards?.[2]?.card?.card?.info
+console.log(resInfo);
 
-  const itemCards =
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card
+  const itemsCards =
+    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
       ?.itemCards;
   // console.log(itemCards);
 
   return (
     <div>
-      <h1>{name}</h1>
+      <h1>{resInfo?.cards?.[2]?.card?.card?.info.name}</h1>
       <h1>
-        {cuisines.join(", ")}-{costForTwoMessage}
+        {resInfo?.cards?.[2]?.card?.card?.info.cuisines.join(", ")}-{resInfo?.cards?.[2]?.card?.card?.info.costForTwoMessage}
       </h1>
 
       <ul>
-        {itemCards.map((item) => (
+        {itemsCards.map((item) => (
           <li key={item.card.info.id}>
             {item.card.info.name}-{" Rs."}
             {(item.card.info.finalPrice)/100 || (item.card.info.defaultPrice)/100}
