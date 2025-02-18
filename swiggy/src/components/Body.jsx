@@ -22,7 +22,7 @@ const Body = () => {
         ?.restaurants || [];
 
     setFoodCard(feedData);
-    // console.log(feedData);
+    console.log(feedData);
   };
 
 const onlineStatus = useOnlineStatus();

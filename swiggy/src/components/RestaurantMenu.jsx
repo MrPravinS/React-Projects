@@ -9,17 +9,18 @@ const RestaurantMenu = () => {
 
   const resInfo = useRestaurantMenu(restId);
 
-  if (resInfo === null) return <Loading />;
-
+  // if (resInfo === null) return <Loading />;
+if(!resInfo) return <Loading/>
   // destructure restrarent menu
   // const { name, cuisines, costForTwoMessage } =
-  //    resInfo?.cards?.[2]?.card?.card?.info
-console.log(resInfo);
+  //    resInfo?.cards[2]?.card?.card?.info
+
+
 
   const itemsCards =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card
-      ?.itemCards;
-  // console.log(itemCards);
+      ?.itemCards || []
+  
 
   return (
     <div>
