@@ -9,7 +9,7 @@ const Body = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [setFoodCard,setSearchFood]);
 
   const fetchData = async () => {
     const data = await fetch(
