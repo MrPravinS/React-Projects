@@ -20,6 +20,12 @@ function App() {
     setTask(deleted);
   };
 
+  const handleCompleted = (index) => {
+    const addCom = [...tasks]
+    addCom.splice(index,1)
+    setcompleted(addCom)
+  }
+
   const handleEnterKey = (e) => {
     if(e.key === "Enter"){
       handleTask()
@@ -46,14 +52,17 @@ function App() {
         </button>
 
         {tasks.map((task, index) => (
-          <span className="flex  justify-between items-center bg-green-300 m-3 p-3 rounded-lg  " key={index}>
+          <span className={`flex  justify-between items-center m-3 p-3 rounded-lg ${completed ? "bg-green-300" : "bg-red-400"} `} key={index}>
             {task}{" "}
+            <div className="flex justify-between">
+            <button className="cursor-pointer bg-green-300 px-2 rounded-lg hover:bg-green-400" onClick={()=>handleCompleted(index)}>{completed ? "Uncompleted":"Completed"}</button>
             <button
               onClick={() => handleDeleteTask(index)}
               className="ml-2 text-blue-500 hover:text-red-600 cursor-pointer"
             >
               X
             </button>
+            </div>
           </span>
         ))}
       </div>
