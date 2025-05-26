@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Loader from "./components/Loader";
+import appStore from "./components/Utils/appStore";
+import { Provider } from "react-redux";
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -28,6 +30,7 @@ function App() {
 
   return (
     <div>
+      <Provider store={appStore}>
       <Header />
       <SearchBar />
        <input type="text" placeholder="enetr product " className="p-2 m-2 text-black "
@@ -70,6 +73,7 @@ function App() {
         
       </div>
       <Footer />
+      </Provider>
     </div>
   );
 }

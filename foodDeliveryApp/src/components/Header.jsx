@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import  { useState } from "react";
+import {Provider,useSelector} from "react-redux"
+import appStore from "./Utils/appStore";
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
+  const cartItems = useSelector((store)=>store.cart.items)
   return (
+  
     <div className="flex  justify-between items-center p-3 border m-3 border-black ">
       <div className=" ">
         <img
@@ -25,7 +29,7 @@ const Header = () => {
             Contact
           </li>
           <li className="p-2 m-2 border rounded-full px-3 py-2 hover:bg-black hover:text-white transition duration-700">
-            Cart
+            Cart({cartItems.length} items)
           </li>
           <button
             onClick={() =>
