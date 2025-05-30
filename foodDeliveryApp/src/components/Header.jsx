@@ -1,6 +1,5 @@
 import  { useState } from "react";
-import {Provider,useSelector} from "react-redux"
-import appStore from "./Utils/appStore";
+import {useSelector} from "react-redux"
 
 const Header = () => {
   const [login, setLogin] = useState("Login");
