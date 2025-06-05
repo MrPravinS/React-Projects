@@ -1,0 +1,29 @@
+{
+  "name": "basics",
+  "version": "1.0.0",
+  "description": "mastering react",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrPravinS/React-Projects.git"
+  },
+  "author": "Pravin Shegamwar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrPravinS/React-Projects/issues"
+  },
+  "homepage": "https://github.com/MrPravinS/React-Projects#readme",
+  "devDependencies": {
+    "parcel": "^2.15.2"
+  },
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "browserList":[
+    "last 2 version"
+
+  ]
+}

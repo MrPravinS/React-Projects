@@ -1,11 +1,11 @@
 const heading = React.createElement(
   "div",
-  { id: "heading", class: "title" },
+  { id: "heading", className: "title" },
   [React.createElement("div", {}, [
     React.createElement("h1", {}, "Hello world from the react!"),
     React.createElement("h2", {}, "this is h2 tag!"),
   ]),React.createElement("div", {}, [
-    React.createElement("h1", {}, "Hello world from the react!"),
+    React.createElement("h1", {}, "Hey I am pravin React Master"),
     React.createElement("h2", {}, "this is h2 tag!"),
   ])]
 );
