@@ -1,12 +1,13 @@
 import ReactDOM from 'react-dom/client'
-import Header from "./components/Header"
-import Footer from "./components/Footer"
-const heading = <h1>Hey How have you been?</h1>
+import Header from "./src/components/Header"
+import Footer from "./src/components/Footer"
+import Body from './src/components/Body'
 
 const AddNeme = () => {
   return (
     <div className=''>
       <Header/>
+      <Body/>
       <Footer/>
     </div>
   )
@@ -18,4 +19,3 @@ root.render(
 
 );
 
-console.log(heading);
