@@ -5,7 +5,7 @@ import Body from './src/components/Body'
 
 const AddNeme = () => {
   return (
-    <div className=''>
+    <div className='w-full h-full'>
       <Header/>
       <Body/>
       <Footer/>
