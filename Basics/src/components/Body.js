@@ -31,9 +31,7 @@ const Body = () => {
     fetchData();
   }, []);
 
-  return foodItem.length === 0 ? (
-    <Loading />
-  ) : (
+  return (
     <div className="">
       <div className=" flex justify-center items-center m-3 ">
         <input

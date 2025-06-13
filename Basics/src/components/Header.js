@@ -1,4 +1,5 @@
 import { FaCartPlus } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
 const Header = () => {
@@ -10,10 +11,10 @@ return (
      </div>
      <div className="flex ">
         <ul className="flex gap-10 p-9">
-            <li className="bg-black text-white font-bold px-2 py-1 rounded-full hover:scale-110 cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in ">Home</li>
-            <li className="bg-black text-white font-bold px-2 py-1 rounded-full cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in ">About</li>
-            <li className="bg-black text-white font-bold px-2 py-1 rounded-full cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in ">Contact</li>
-            <li className="text-2xl font-bold p-1 cursor-pointer hover:scale-120 transition duration-300"><FaCartPlus /></li>
+            <li className="bg-black text-white font-bold px-2 py-1 rounded-full hover:scale-110 cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in "><Link to="/">Home</Link></li>
+            <li className="bg-black text-white font-bold px-2 py-1 rounded-full cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in "><Link to="/about">About</Link></li>
+            <li className="bg-black text-white font-bold px-2 py-1 rounded-full cursor-pointer hover:bg-white  hover:text-black border  transition duration-300 ease-in "><Link to="/contact">Contact</Link></li>
+            <li className="text-2xl font-bold p-1 cursor-pointer hover:scale-120 transition duration-300"><Link to="/cart"><FaCartPlus /></Link></li>
         </ul>
      </div>
      
