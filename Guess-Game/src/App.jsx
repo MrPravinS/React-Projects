@@ -12,13 +12,12 @@ function App() {
 
   const checkGuess = () => {
     const inputNumber = parseInt(inputVal.trim());
-    console.log(inputNumber);
 
     if (isNaN(inputNumber) || inputNumber < 1 || inputNumber > 100) {
       setMassage("Please enter  number between 1 and 100.");
     } else if (inputNumber === guessNumber) {
       setMassage(
-        `Congratulation! You Guess The Number In ${guessCount + 1} Attempt.`
+        `Congratulation! You Guess The Correct Number In ${guessCount + 1} Attempt.`
       );
     } else if (inputNumber < guessNumber) {
       setMassage("To low! Try Again");
@@ -38,7 +37,7 @@ function App() {
   return (
     <div className="flex justify-center items-center  bg-gray-900 h-screen">
       <div className="  bg-gray-700 rounded-lg shadow-lg w-[600px] h-[500px]">
-        <h1 className="text-white  text-center m-4 font-bold text-4xl">
+        <h1 className="text-white justify-center text-center m-4 font-bold text-4xl">
           Number Guess Game
         </h1>
         <div className="flex flex-col justify-center items-center mt-30 ">
@@ -66,7 +65,7 @@ function App() {
           </div>
         </div>
         <div className="flex justify-center items-center m-3 text-white font-bold">
-          {message && <h3 className="text-center text-white">{message}</h3>}
+          {message && <h2 >{message}</h2>}
         </div>
       </div>
     </div>
